@@ -1,6 +1,6 @@
 # timemanagement-hs
 
-Aggregates times in a logfile
+Aggregates times in a logfile. See also [timelogger](https://github.com/godrin/timelogger)
 
 ## Install / Usage
 
