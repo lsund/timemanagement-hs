@@ -5,9 +5,6 @@ import Data.Map.Strict (Map)
 import Data.List.Split (splitOn)
 import System.Environment (getArgs)
 
-file :: FilePath
-file = "/home/lsund/Data/log/time/log_20201218_auto.txt"
-
 type Time = (Int, Int)
 type Activity = String
 
