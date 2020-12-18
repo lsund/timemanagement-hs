@@ -1,0 +1,34 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           timemanagement-hs
+version:        0.1.0.0
+description:    Please see the readme
+homepage:       https://github.com/lsund/timemanagement-hs#readme
+bug-reports:    https://github.com/lsund/timemanagement-hs/issues
+author:         Ludvig Sundström
+maintainer:     lud.sund@gmail.com
+license:        BSD3
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/lsund/timemanagement-hs
+
+executable timemanagement
+  main-is: Main.hs
+  other-modules:
+      Paths_timemanagement_hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , split
+  default-language: Haskell2010

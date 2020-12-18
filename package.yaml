@@ -1,0 +1,26 @@
+name:                timemanagement-hs
+version:             0.1.0.0
+github:              "lsund/timemanagement-hs"
+license:             BSD3
+author:              "Ludvig Sundström"
+maintainer:          "lud.sund@gmail.com"
+
+extra-source-files:
+- README.md
+
+description:         Please see the readme
+
+dependencies:
+- base >= 4.7 && < 5
+- split
+- containers
+
+executables:
+  timemanagement:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+
