@@ -1,6 +1,7 @@
 module Main where
 
 import qualified Data.Map.Strict as M
+import Data.List (sortBy)
 import Data.Map.Strict (Map)
 import Data.List.Split (splitOn)
 import System.Environment (getArgs)
@@ -48,7 +49,7 @@ main = do
             let file = head args
             content <- readFile file
             case mapM (makeEntry . words) $ lines content of
-                Just es -> (mapM_ print . M.toList . M.map minutesToTime . aggregateMinutes) es
+                Just es -> (mapM_ print . sortBy (\(_, t1) (_, t2) -> t2 `compare` t1) . M.toList . M.map minutesToTime . aggregateMinutes) es
                 Nothing -> putStrLn $ "Problem reading " <> file
        else
             putStrLn "Usage: ./timemanagement-hs FILE"
