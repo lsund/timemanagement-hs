@@ -21,6 +21,10 @@ aggregateMinutes (e : es) =
         (M.empty, e) es
 
 
+minutesToTime :: Int -> Time
+minutesToTime x = (div x 60, rem x 60)
+
+
 -- First argument is smaller than the second
 minuteDiff :: Time -> Time -> Int
 minuteDiff (h1, m1) (h2, m2) = ((h2 - h1) * 60) + m2 - m1
@@ -44,7 +48,7 @@ main = do
             let file = head args
             content <- readFile file
             case mapM (makeEntry . words) $ lines content of
-                Just es -> (mapM_ print . M.toList . aggregateMinutes) es
+                Just es -> (mapM_ print . M.toList . M.map minutesToTime . aggregateMinutes) es
                 Nothing -> putStrLn $ "Problem reading " <> file
        else
             putStrLn "Usage: ./timemanagement-hs FILE"
