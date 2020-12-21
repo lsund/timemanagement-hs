@@ -49,7 +49,7 @@ main = do
             let file = head args
             content <- readFile file
             case mapM (makeEntry . words) $ lines content of
-                Just es -> (mapM_ print . sortBy (\(_, t1) (_, t2) -> t2 `compare` t1) . M.toList . M.map minutesToTime . aggregateMinutes) es
+                Just es -> (mapM_ print . sortBy (\a b -> snd a `compare` snd b) . M.toList . M.map minutesToTime . aggregateMinutes) es
                 Nothing -> putStrLn $ "Problem reading " <> file
        else
             putStrLn "Usage: ./timemanagement-hs FILE"
